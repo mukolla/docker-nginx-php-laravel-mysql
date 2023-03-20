@@ -35,6 +35,13 @@ Open Git Bash in /YOUR_PROJECT_DIRECTORY/docker:
 
 Next step:
 * ```docker exec -it project_php composer install```
+* ```docker exec -it project_php php artisan key:generate```
+* ```docker exec -it project_php php artisan config:clear```
+* ```docker exec -it project_php php artisan config:cache```
+* ```docker exec -it project_php php artisan migrate```
+* 
+* ``` php artisan tinker```
+* ```>>> \DB::table('migrations')->get();```
 
 | Service      | Path                    |
 | ------------ | ----------------------- |
