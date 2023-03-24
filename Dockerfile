@@ -43,9 +43,8 @@ COPY --chown=www:www . /var/www
 
 RUN chown www:www /var/www
 
-RUN composer install --no-scripts --no-autoloader
-
-RUN printenv | grep -v '^_' >> .env
+#RUN composer install --no-scripts --no-autoloader
+#RUN printenv | grep -v '^_' >> .env
 
 # Change current user to www
 USER www
