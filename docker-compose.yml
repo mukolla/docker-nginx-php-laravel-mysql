@@ -4,7 +4,7 @@ services:
   #PHP Service
   app:
     build:
-      context: services/php
+      context: .
       dockerfile: Dockerfile
     container_name: '${PROJECT_NAME}_app'
     restart: unless-stopped
@@ -15,7 +15,7 @@ services:
     working_dir: '${WORKING_DIR}'
     volumes:
       - ${APP_PATH}:${WORKING_DIR}
-      - ./services/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ./docker/services/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
 
@@ -30,15 +30,15 @@ services:
       - "443:443"
     volumes:
       - ${APP_PATH}:${WORKING_DIR}
-      - ./services/webserver/nginx/conf.d/:/etc/nginx/conf.d/
+      - ./docker/services/webserver/nginx/conf.d/:/etc/nginx/conf.d/
     networks:
       - app-network
 
   #MySQL Service
   db:
     build:
-        context: services/db/mysql
-        dockerfile: Dockerfile
+      context: .
+      dockerfile: ./docker/services/db/mysql/Dockerfile
     container_name: '${PROJECT_NAME}_db'
     restart: unless-stopped
     tty: true
@@ -53,7 +53,7 @@ services:
       SERVICE_NAME: mysql
     volumes:
       - dbdata:/var/lib/mysql/
-      - ./services/db/mysql/my.cnf:/etc/mysql/my.cnf
+      - ./docker/services/db/mysql/my.cnf:/etc/mysql/my.cnf
     networks:
       - app-network
 
