@@ -18,3 +18,7 @@ docker compose -p ${PROJECT_NAME} rm -f
 
 log_message "Starting containers..."
 docker compose -p ${PROJECT_NAME} up -d --remove-orphans --build
+
+#docker compose -p security_app stop
+#docker compose -p security_app rm -f
+#docker compose -p security_app up -d --remove-orphans --build

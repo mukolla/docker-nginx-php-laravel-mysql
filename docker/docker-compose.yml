@@ -2,19 +2,19 @@ version: '3'
 services:
 
   #PHP Service
-  php:
+  app:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: 'security_app_php'
+    container_name: '${PROJECT_NAME}_app'
     restart: unless-stopped
     tty: true
     environment:
       SERVICE_NAME: app
       SERVICE_TAGS: dev
-    working_dir: '/var/www'
+    working_dir: '${WORKING_DIR}'
     volumes:
-      - ./:/var/www
+      - ${APP_PATH}:${WORKING_DIR}
       - ./docker/services/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
@@ -22,14 +22,14 @@ services:
   #Nginx Service
   webserver:
     image: nginx:alpine
-    container_name: 'security_app_webserver'
+    container_name: '${PROJECT_NAME}_webserver'
     restart: unless-stopped
     tty: true
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - ./:/var/www
+      - ${APP_PATH}:${WORKING_DIR}
       - ./docker/services/webserver/nginx/conf.d/:/etc/nginx/conf.d/
     networks:
       - app-network
@@ -39,16 +39,16 @@ services:
     build:
       context: .
       dockerfile: ./docker/services/db/mysql/Dockerfile
-    container_name: 'security_app_db'
+    container_name: '${PROJECT_NAME}_db'
     restart: unless-stopped
     tty: true
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: 'security_app'
-      MYSQL_ROOT_PASSWORD: 'root'
-      MYSQL_USER: 'security_app'
-      MYSQL_PASSWORD: '123123'
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
