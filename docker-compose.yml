@@ -3,9 +3,7 @@ services:
 
   #PHP Service
   php:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: mukolla/nginx-php-laravel-mysql:latest
     container_name: 'security_app_php'
     restart: unless-stopped
     tty: true
