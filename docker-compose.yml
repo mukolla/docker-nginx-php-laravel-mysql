@@ -32,29 +32,6 @@ services:
     networks:
       - app-network
 
-  #MySQL Service
-#  db:
-#    build:
-#      context: .
-#      dockerfile: ./docker/services/db/mysql/Dockerfile
-#    container_name: 'security_app_db'
-#    restart: unless-stopped
-#    tty: true
-#    ports:
-#      - "3306:3306"
-#    environment:
-#      MYSQL_DATABASE: 'security_app'
-#      MYSQL_ROOT_PASSWORD: 'root'
-#      MYSQL_USER: 'security_app'
-#      MYSQL_PASSWORD: '123123'
-#      SERVICE_TAGS: dev
-#      SERVICE_NAME: mysql
-#    volumes:
-#      - dbdata:/var/lib/mysql/
-#      - ./docker/services/db/mysql/my.cnf:/etc/mysql/my.cnf
-#    networks:
-#      - app-network
-
 #Docker Networks
 networks:
   app-network:

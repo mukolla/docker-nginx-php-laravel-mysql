@@ -5,9 +5,6 @@ on:
   push:
     tags:
       - 'v*'
-  pull_request:
-    branches:
-      - 'main'
 
 jobs:
   docker:
@@ -36,3 +33,10 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+      -
+        name: Deploy Stage
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'http://65.109.224.101:9000/api/endpoints/2/docker/images/create?fromImage=mukolla%2Fnginx-php-laravel-mysql:latest'
+          method: 'POST'
+          customHeaders: '{"X-API-Key": "${{ secrets.PORTAINER_TOKEN }}"}'
