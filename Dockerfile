@@ -52,7 +52,6 @@ RUN composer install
 USER www
 
 COPY .env.example .env
-RUN /usr/local/bin/php artisan key:generate
 
 # Copy composer.lock and composer.json
 #COPY composer.lock composer.json /var/www/
