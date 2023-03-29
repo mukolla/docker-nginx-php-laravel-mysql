@@ -43,10 +43,6 @@ COPY --chown=www:www . /var/www
 
 RUN chown www:www /var/www
 
-RUN mkdir /usr/share/nginx/
-RUN ln -s /var/www /usr/share/nginx/html
-RUN chown www:www /usr/share/nginx/html
-
 #RUN composer install --no-scripts --no-autoloader
 #RUN printenv | grep -v '^_' >> .env
 
@@ -54,6 +50,9 @@ RUN composer install
 
 # Change current user to www
 USER www
+
+COPY .env.example .env
+RUN /usr/local/bin/php artisan key:generate
 
 # Copy composer.lock and composer.json
 #COPY composer.lock composer.json /var/www/
