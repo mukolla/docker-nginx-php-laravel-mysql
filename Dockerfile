@@ -51,6 +51,10 @@ RUN composer install
 # Change current user to www
 USER www
 
+RUN mkdir -p /usr/share/nginx/html
+RUN ln -s /var/www /usr/share/nginx/html
+RUN chown -h www:www /usr/share/nginx/html
+
 # Copy composer.lock and composer.json
 #COPY composer.lock composer.json /var/www/
 
