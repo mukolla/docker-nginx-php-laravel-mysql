@@ -40,3 +40,4 @@ networks:
 volumes:
   dbdata:
     driver: local
+
