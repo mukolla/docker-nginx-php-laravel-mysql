@@ -1,6 +1,10 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/laravel/compare/v1.1.4.1.6...main)
+## [Unreleased](https://github.com/laravel/laravel/compare/v1.1.4.1.7...main)
+
+## [v1.1.4.1.7](https://github.com/laravel/laravel/compare/v1.1.4.1.6...v1.1.4.1.7) - 2023-03-29
+
+**Full Changelog**: https://github.com/mukolla/docker-nginx-php-laravel-mysql/compare/v1.1.4.1.6...v1.1.4.1.7
 
 ## [v1.1.4.1.6](https://github.com/laravel/laravel/compare/v1.1.4.1.5...v1.1.4.1.6) - 2023-03-29
 
