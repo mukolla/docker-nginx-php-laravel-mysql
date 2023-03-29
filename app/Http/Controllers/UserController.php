@@ -22,6 +22,11 @@ class UserController extends Controller
             $b=1;
         }
 
+        $c=false;
+        if(!$c){
+            $c=1;
+        }
+
         return view('user.profile', [
             'user' => User::findOrFail($id)
         ]);
