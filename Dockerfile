@@ -44,6 +44,8 @@ COPY ./docker-php-entrypoint /usr/local/bin/
 # Set execute permission on docker-php-entrypoint
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
 
+RUN chown www:www /usr/local/bin/docker-php-entrypoint
+
 # Copy existing application directory permissions
 RUN chown www:www /var/www
 
