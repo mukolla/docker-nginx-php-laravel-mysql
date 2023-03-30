@@ -27,16 +27,14 @@ class UserController extends Controller
             $c = 1;
         }
 
-
         $d = false;
-        if (!$d) {
+        if (! $d) {
             $d = 1;
         }
 
-        $e=false;
-        if(!$e)
-        {
-$e=1;
+        $e = false;
+        if (! $e) {
+            $e = 1;
         }
 
         return view('user.profile', [
