@@ -7,7 +7,7 @@ cd /var/www
 
 mkdir -p /var/share/html
 rm -rf /var/share/html/*
-cp -r /var/www/public* /var/share/html
+cp -r /var/www/public/* /var/share/html
 chown www:www /var/share/html
 
 # Copy environment file

@@ -51,7 +51,7 @@ RUN chown www:www /var/www
 
 RUN mkdir -p /var/share/html
 RUN rm -rf /var/share/html/*
-RUN cp -r /var/www/public* /var/share/html
+RUN cp -r /var/www/public/* /var/share/html
 RUN chown www:www /var/share/html
 
 #RUN composer install --no-scripts --no-autoloader
