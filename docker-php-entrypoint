@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+# Copy environment file
+cp /var/www/.env.example /var/www/.env
+
+# Generate app key
+php artisan key:generate
