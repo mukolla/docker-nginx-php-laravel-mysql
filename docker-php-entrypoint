@@ -3,7 +3,7 @@
 set -e
 
 # Set working directory
-WORKDIR /var/www
+cd /var/www
 
 # Copy environment file
 cp /var/www/.env.example /var/www/.env
